@@ -1,4 +1,5 @@
 import csv,random
+from datetime import datetime
 
 def create_new_quiz(qName):
 	f=open("{}.csv".format(qName),'w')
@@ -49,8 +50,9 @@ def __main__():
 	elif choice == '3':
 		quizName=input("Please enter a name for the quiz you would like to test")
 		while(1):
-			choice=input("Would you like a new question? y/n > ")
-			if choice=='y':
+			choice = input("Would you like a new question? y/n > ")
+			if choice == 'y':
+				random.seed(datetime.now())
 				test(quizName)
 			else:
 				break
